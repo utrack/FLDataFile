@@ -38,7 +38,7 @@ namespace FLDataFile
             AddRange(
                 (
                 text
-                .Split(Delimiters, StringSplitOptions.RemoveEmptyEntries) //split multivalues
+                .Split(Delimiters, StringSplitOptions.None) //split multivalues
                 )
                 .Select(s => s.Trim()) //remove spaces just to be safe
                 );
