@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace FLDataFile
 {
@@ -234,5 +235,21 @@ namespace FLDataFile
         }
 
         #endregion
+
+
+        public void Save(string path)
+        {
+            if (File.Exists(path)) File.Delete(path);
+
+            var buf = new List<string>();
+
+            foreach (var sec in Sections)
+            {
+                buf.Add(String.Format("[{0}]",sec.Name));
+                buf.AddRange(sec.Settings.Select(set => set.String()));
+            }
+
+            File.WriteAllLines(path,buf);
+        }
     }
 }
