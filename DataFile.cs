@@ -51,6 +51,11 @@ namespace FLDataFile
             return dbuf;
         }
 
+        public DataFile()
+        {
+            Sections = new List<Section>();
+        }
+
         public DataFile(string path)
         {
             if (path == string.Empty)
