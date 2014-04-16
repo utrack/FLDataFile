@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace FLDataFile
 {
+
     public class Section
     {
         public List<Setting> Settings = new List<Setting>();
