@@ -32,6 +32,7 @@ namespace FLDataFile
         public static byte[] LoadBytes(string path)
         {
             byte[] buf;
+            if (!File.Exists(path)) return null;
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 buf = new byte[fs.Length];
