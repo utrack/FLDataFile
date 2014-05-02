@@ -230,6 +230,22 @@ namespace FLDataFile
             return ret;
         }
 
+
+        /// <summary>
+        /// Return a list of all items within the specified section(s).
+        /// </summary>
+        /// <param name="sectionName">The section name.</param>
+        /// <returns></returns>
+        public List<Setting> GetSettings(string sectionName)
+        {
+            var ret = new List<Setting>();
+            foreach (var sect in GetSections(sectionName))
+            {
+                ret.AddRange(sect.Settings);
+            }
+            return ret;
+        }
+
         public Setting GetSetting(string sectionName, string settingName)
         {
             return GetFirstOf(sectionName).GetFirstOf(settingName);
